@@ -24,13 +24,6 @@ class RegisterController extends Controller
     use RegistersUsers;
 
     /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
-
-    /**
      * Create a new controller instance.
      *
      * @return void
@@ -52,6 +45,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'isAdmin' => ['nullable'],
         ]);
     }
 
@@ -67,6 +61,12 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'isAdmin' => $data['isAdmin'] ?? 0,
         ]);
     }
+
+    protected function redirectTo()
+    {
+        return auth()->user()->isAdmin == 1 ? '/admin' : '/home';
+    } 
 }

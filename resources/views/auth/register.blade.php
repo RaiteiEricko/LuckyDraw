@@ -61,6 +61,19 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="isAdmin" class="col-md-4 col-form-label text-md-right">Role</label>
+                            <div class="col-md-6">
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="isAdmin" id="isAdmin" value="1">
+
+                                    <label class="form-check-label" for="isAdmin">
+                                        Admin
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
