@@ -32,7 +32,7 @@ class HomeController extends Controller
 
     public function admin()
     {
-        $userNumbers = UserNumber::whereNotNull('winner_type')->get(['user_id', 'number', 'winner_type']);
+        $userNumbers = UserNumber::whereNotNull('winner_type')->orderBy('winner_type', 'asc')->get(['user_id', 'number', 'winner_type']);
         return View::make('admin')->with('userNumbers', $userNumbers);
     }
 
