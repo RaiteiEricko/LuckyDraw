@@ -36,4 +36,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the winning numbers of user.
+     */
+    public function userNumbers()
+    {
+        return $this->hasMany('App\User_number', 'user_id');
+    }
 }
