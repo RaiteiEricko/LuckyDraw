@@ -17,6 +17,7 @@ class CreateUserNumbersTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id');
             $table->integer('number')->length(4)->unique();
+            $table->enum('winner_type', array_keys(Config::get('luckydraw.winnerTypes')))->nullable();
             $table->timestamps();
         });
     }

@@ -18,5 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/admin', 'HomeController@admin')->middleware('admin')->name('admin');
 Route::post('/save-number', 'HomeController@saveNumber')->name('save-number');
+Route::get('/admin', 'HomeController@admin')->middleware('admin')->name('admin');
+Route::post('/draw-winner', 'HomeController@drawWinner')->middleware('admin')->name('draw-winner');

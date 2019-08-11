@@ -12,7 +12,7 @@ class UserNumber extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'number'
+        'user_id', 'number', 'winner_type'
     ];
 
     /**
